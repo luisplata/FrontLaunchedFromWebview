@@ -2,18 +2,29 @@ const data = document.getElementById("navegador");
 
 function detectarNavegadorYDispositivo() {
   const userAgent = navigator.userAgent;
+  const navigatorData = navigator.userAgentData;
 
   console.log(userAgent);
+  console.log("Navegador:", navigator);
+  var broserData = "";
+  navigatorData.brands.forEach(brand => {
+    
+    broserData += brand.brand + "_" + brand.version + "-";
+
+    console.log(brand.brand);
+    console.log(brand.version);
+  });
+  console.log("browserVersion:", broserData);
 
   // Detectar el navegador
   const navegador =
-    userAgent.includes("Chrome") && !userAgent.includes("Edge")
+    broserData.includes("Chrome") && !broserData.includes("Edge")
       ? "Google Chrome"
-      : userAgent.includes("Safari") && !userAgent.includes("Chrome")
+      : broserData.includes("Safari") && !broserData.includes("Chrome")
         ? "Safari"
-        : userAgent.includes("Firefox")
+        : broserData.includes("Firefox")
           ? "Mozilla Firefox"
-          : userAgent.includes("Edge")
+          : broserData.includes("Edge")
             ? "Microsoft Edge"
             : "Otro navegador";
 
