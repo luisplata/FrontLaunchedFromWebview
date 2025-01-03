@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 50rem;
+  height: 20rem;
+  background-color: #333;
+  & h1 {
+    text-align: center;
+    color: #fff;
+  }
+  & li {
+    color: #fff;
+    margin: 1rem;
+  }
+}
